@@ -5,7 +5,7 @@ Clone of www.donttap.com
 Reach score goal by clicking on black tiles before time runs out. If you click on white tile or time runs out, you lose.
 
 ## TODO
- - [ ] Add score goal and timer
+ - [x] Add score goal and timer
  - [ ] Add score multiplier
  - [ ] Add menu / options with difficulty settings
  - [ ] Add score saving

@@ -47,9 +47,6 @@ int main() {
 
             ClearBackground(kColors[cBackground]);
             game.loop();
-            
-            sprintf(scoreText, " %d", game.getScore());
-            DrawText(scoreText, kWindowDimensions / 2 - MeasureText(scoreText, 40) / 1.5f, kWindowBorder, 40, kColors[cScoreText]);
 
         EndDrawing();
     }

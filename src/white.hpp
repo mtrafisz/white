@@ -3,8 +3,8 @@
 #include "color.hpp"
 #include <array>
 
-const float kScale = 1.0f;
-const uint8_t kTileResolution = 4;
+const float kScale = 1.4f;
+const uint8_t kTileResolution = 4;  // x * x tiles
 const uint8_t toClick = kTileResolution - 1;    // Chosen randomly, might change later
 
 const unsigned kTileBorder = (unsigned)((float) 4 * kScale),
@@ -57,9 +57,17 @@ private:
     void setRandomTileEnabled();
 
     int score = 0;
+    char scoreText[32];
 
-    int goal = 25;
-    float timeToGoalIncrement = 5.0f;
+    const int startGoal = 40;
+    float startTimeToGoalIncrement = 10.0f;
+    const float difficultyIncrement = 0.95f; 
+
+    int goal = startGoal;
+    float timeToGoalIncrement = startTimeToGoalIncrement;
+
+    char goalText[32];
+    char timeToGoalText[32];
     
 public:
     white();
