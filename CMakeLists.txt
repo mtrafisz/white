@@ -31,7 +31,14 @@ add_executable(
     src/white.hpp
     src/white.cpp
     src/white_tile.cpp
+    src/white_bar.cpp
     src/main.cpp
 )
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
+
+# move assets to build dir:
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/assets $<TARGET_FILE_DIR:${PROJECT_NAME}>/assets
+)

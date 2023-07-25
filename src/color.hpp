@@ -34,12 +34,18 @@ const Color kColors[] = {
     /* background color */
     colorFromHex(0x2EC4B6ff),
     /* score text color */
-    colorFromHex(0xE71D36ff)
+    colorFromHex(0xE71D36ff),
+    /* multiplier bar background color */
+    colorFromHex(0x011627ff),
+    /* multiplier bar bar color */
+    colorFromHex(0xE71D36ff),
 };
 
 enum kColorIndex {
     cTiles,
     cDisabledTiles,
     cBackground,
-    cScoreText
+    cScoreText,
+    cMultiplierBarBackground,
+    cMultiplierBarBar,
 };

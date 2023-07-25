@@ -6,8 +6,8 @@ Reach score goal by clicking on black tiles before time runs out. If you click o
 
 ## TODO
  - [x] Add score goal and timer
- - [ ] Add score multiplier
- - [ ] Add menu / options with difficulty settings
+ - [x] Add score multiplier (is a little broken)
+ - [ ] Add menu / options / you lost screens and difficulty settings
  - [ ] Add score saving
  - [ ] Rework sound
  - [ ] Add more game modes

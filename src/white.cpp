@@ -40,6 +40,14 @@ void white::loop() {
         }
     }
 
+    multiplier -= (dischargeRate * GetFrameTime());
+    if (multiplier < 1.0f) {
+        multiplier = 1.0f;
+    }
+    multiplierBar.update(multiplier);
+
+    multiplierBar.draw();
+
     for (int i = 0; i < kTileResolution * kTileResolution; i++) {
         update(i);
         draw(i);
@@ -52,7 +60,10 @@ void white::clickInput() {
             if (tiles[i].isEnabled()) {
                 tiles[i].disable();
                 tiles[i].highlight();
-                score++;
+
+                score += ffloor(multiplier);
+                multiplier += multiplierIncrement;
+
                 setRandomTileEnabled();
             }
             else {
@@ -81,8 +92,10 @@ void white::reset() {
     score = 0;
     goal = startGoal;
     timeToGoalIncrement = startTimeToGoalIncrement;
+    multiplier = 1.0f;
+    multiplierBar.reset();
 }
 
-int white::getScore() const {
-    return score;
+int white::ffloor(float f) const {
+    return (int) f;
 }

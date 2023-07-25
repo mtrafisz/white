@@ -18,10 +18,9 @@ int main() {
     InitAudioDevice();
     SetTargetFPS(30);
 
-    white game;
-    char scoreText[32];
+    white game;;
 
-    Sound clickSound = LoadSound("../../assets/click.wav"); // assuming it's played directly from build folder
+    Sound clickSound = LoadSound("assets/click.wav");
     // TODO: add multiple click sounds, move this out of main.cpp
 
     while (!WindowShouldClose()) {
