@@ -7,10 +7,10 @@ const float kScale = 1.4f;
 const uint8_t kTileResolution = 4;  // x * x tiles
 const uint8_t toClick = kTileResolution - 1;    // Chosen randomly, might change later
 
-const unsigned kTileBorder = (unsigned)((float) 4 * kScale),
-               kTileDimensions = (unsigned)((float) 100 * kScale),
-               kWindowBorder = (unsigned)((float) 20 * kScale),
-               kWindowDimensions = kWindowBorder * 2 + kTileDimensions * kTileResolution + kTileBorder * (kTileResolution - 1);
+const unsigned kTileBorder = (unsigned)((float)4 * kScale),
+kTileDimensions = (unsigned)((float)100 * kScale),
+kWindowBorder = (unsigned)((float)20 * kScale),
+kWindowDimensions = kWindowBorder * 2 + kTileDimensions * kTileResolution + kTileBorder * (kTileResolution - 1);
 
 class whiteTile {
 private:
@@ -72,9 +72,14 @@ public:
 class white {
 private:
     whiteTile tiles[kTileResolution * kTileResolution];
-    
+
     // bar on the bottom border:
-    whiteMultiplierBar multiplierBar = whiteMultiplierBar({ (float) kWindowBorder + kTileBorder, (float) (kWindowBorder + kTileDimensions * kTileResolution + kTileBorder * kTileResolution) }, (float) (kTileDimensions * kTileResolution), (float) (kWindowBorder * 0.5f));
+    whiteMultiplierBar multiplierBar = whiteMultiplierBar(
+        { (float)kWindowBorder + kTileBorder,
+          (float)(kWindowBorder + kTileDimensions * kTileResolution + kTileBorder * kTileResolution) },
+        (float)(kTileDimensions * kTileResolution),
+        (float)(kWindowBorder * 0.5f)
+    );
 
     void update(int i);
     void draw(int i);
@@ -86,7 +91,7 @@ private:
     // goal stuff
     const int startGoal = 40;
     float startTimeToGoalIncrement = 10.0f;
-    const float difficultyIncrement = 0.95f; 
+    const float difficultyIncrement = 0.95f;
 
     int goal = startGoal;
     float timeToGoalIncrement = startTimeToGoalIncrement;
@@ -101,10 +106,10 @@ private:
     const float dischargeRate = 0.2f;
     const float multiplierIncrement = dischargeRate / 3.9f;
     //const float multiplierIncrement = dischargeRate / 2.0f;
-    
+
 public:
     white();
-    
+
     void loop();
 
     void clickInput();

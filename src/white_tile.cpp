@@ -1,4 +1,5 @@
 #include "white.hpp"
+#include <math.h>
 
 whiteTile::whiteTile(const Vector2& position) : position(position) {}
 
@@ -12,7 +13,7 @@ bool whiteTile::isHighlighted() const {
 }
 
 bool whiteTile::isClicked() const {
-    return (CheckCollisionPointRec(GetMousePosition(), { position.x, position.y, (float) kTileDimensions, (float) kTileDimensions }));
+    return (CheckCollisionPointRec(GetMousePosition(), { position.x, position.y, (float)kTileDimensions, (float)kTileDimensions }));
 }
 
 void whiteTile::update() {
@@ -28,7 +29,7 @@ void whiteTile::draw() {
     Color tempColor = kColors[disabled ? cDisabledTiles : cTiles];
 
     if (highlighted) tempColor = colorLerp(tempColor, kColors[cTiles], 1.0f - powf(1.0f - highlightTimer / kHighlightDuration, 2.0f));
-    
+
     DrawRectangle(position.x, position.y, kTileDimensions, kTileDimensions, tempColor);
 }
 
